@@ -1,30 +1,35 @@
 import pygame as pg
-from bolilla_mia import *
+from figuras_mias import *
 
 #Inicializar todos los modulos pygame
 #pantallas, sonidos, teclados, etc
 pg.init()
 
 # Crear pantalla o Surface
-ancho_pant = 600
-alto_pant = 800
+ancho_pant = 800
+alto_pant = 600
 
-pantalla_principal = pg.display.set_mode( (alto_pant, ancho_pant) ) # Ventana y tamaño, con Ancho y Largo
+pantalla_principal = pg.display.set_mode( (ancho_pant, alto_pant) ) # Ventana y tamaño, con Ancho y Largo
 pg.display.set_caption("Bolillas Rebotando") # Titulo para la ventana
 
 game_over = False
-velocidad = 0.1
+velocidad = 0.5 
 
-bola = Bolilla(20, 20, (255, 225, 93), 400, 300, ancho_pant, alto_pant, velocidad)
-bola1 = Bolilla(20, 20, (244, 157, 26), 0, 246, ancho_pant, alto_pant, velocidad)
-bola2 = Bolilla(20, 20, (233, 53, 53), 350, 0, ancho_pant, alto_pant, velocidad)
-bola3 = Bolilla(20, 20, (175, 30, 104), 784, 75, ancho_pant, alto_pant, velocidad)
-bola4 = Bolilla(20, 20, (224, 53, 53), 376, 147, ancho_pant, alto_pant, velocidad)
-bola5 = Bolilla(20, 20, (106, 30, 104), 276, 55, ancho_pant, alto_pant, velocidad)
-bola6 = Bolilla(20, 20, (200, 53, 53), 575, 242, ancho_pant, alto_pant, velocidad)
-bola7 = Bolilla(20, 20, (0, 0, 0), 800, 200, ancho_pant, alto_pant, velocidad)
-bola8 = Bolilla(20, 20, (211, 53, 53), 30, 200, ancho_pant, alto_pant, velocidad)
-bola9 = Bolilla(20, 20, (158, 30, 104), 185, 0, ancho_pant, alto_pant, velocidad)
+cuadrado1 = Rectangulo(20, 20, (244, 157, 26), 0, 246, ancho_pant, alto_pant, pantalla_principal, velocidad)
+cuadrado2 = Rectangulo(20, 20, (233, 53, 53), 350, 0, ancho_pant, alto_pant, pantalla_principal, velocidad)
+cuadrado3 = Rectangulo(20, 20, (175, 30, 104), 784, 10, ancho_pant, alto_pant, pantalla_principal, velocidad) #falso en ambas condiciones linea 27 de la clase
+cuadrado4 = Rectangulo(20, 20, (224, 53, 53), 376, 147, ancho_pant, alto_pant, pantalla_principal, velocidad)
+cuadrado5 = Rectangulo(20, 20, (106, 30, 104), 276, 55, ancho_pant, alto_pant, pantalla_principal, velocidad)
+cuadrado6 = Rectangulo(20, 20, (200, 53, 53), 575, 242, ancho_pant, alto_pant, pantalla_principal, velocidad)
+cuadrado7 = Rectangulo(20, 20, (255, 255, 255), 800, 200, ancho_pant, alto_pant, pantalla_principal, velocidad)
+cuadrado8 = Rectangulo(20, 20, (211, 53, 53), 30, 200, ancho_pant, alto_pant, pantalla_principal, velocidad)
+cuadrado9 = Rectangulo(20, 20, (158, 30, 104), 185, 0, ancho_pant, alto_pant, pantalla_principal, velocidad)
+cuadrado10 = Rectangulo(20, 20, (255, 225, 93), 400, 300, ancho_pant, alto_pant, pantalla_principal, velocidad)
+
+ball1 = Bola(20, (154, 220, 255), 456, 200, ancho_pant, alto_pant, pantalla_principal, velocidad)
+ball2 = Bola(20, (255, 248, 154), 250, 580, ancho_pant, alto_pant, pantalla_principal, velocidad) #falso en ambas condiciones linea 57 de la clase
+ball3 = Bola(20, (255, 178, 166), 113, 430, ancho_pant, alto_pant, pantalla_principal, velocidad)
+ball4 = Bola(20, (255, 138, 174), 200, 320, ancho_pant, alto_pant, pantalla_principal, velocidad)
 
 while not game_over:
 
@@ -35,19 +40,36 @@ while not game_over:
 
     pantalla_principal.fill( (192, 238, 228) ) #Asignar color a la pantalla
 
-    # Crear un rectángulo que tenga largo y ancho
+    cuadrado1.dibujar()
+    cuadrado2.dibujar()
+    cuadrado3.dibujar()
+    cuadrado4.dibujar()
+    cuadrado5.dibujar()
+    cuadrado6.dibujar()
+    cuadrado7.dibujar()
+    cuadrado8.dibujar()
+    cuadrado9.dibujar()
+    cuadrado10.dibujar()
 
-    #dibujar(pantalla, (color RGB), (Coord. Posicion An x La, tamaño An, Tamaño La))
-    """ pg.draw.rect(pantalla_principal, (192, 57, 43), (x, y, 20, 20)) """
+    ball1.dibujar()
+    ball2.dibujar()
+    ball3.dibujar()
+    ball4.dibujar()
 
-    pg.draw.rect(pantalla_principal, bola.color, (bola.mover()[0], bola.mover()[1], bola.ancho, bola.alto))
-    pg.draw.rect(pantalla_principal, bola1.color, (bola1.mover()[0], bola1.mover()[1], bola1.ancho, bola1.alto))
-    pg.draw.rect(pantalla_principal, bola2.color, (bola2.mover()[0], bola2.mover()[1], bola2.ancho, bola2.alto))
-    pg.draw.rect(pantalla_principal, bola3.color, (bola3.mover()[0], bola3.mover()[1], bola3.ancho, bola3.alto))
-    pg.draw.rect(pantalla_principal, bola4.color, (bola4.mover()[0], bola4.mover()[1], bola4.ancho, bola4.alto))
-    pg.draw.rect(pantalla_principal, bola5.color, (bola5.mover()[0], bola5.mover()[1], bola5.ancho, bola5.alto))
-    pg.draw.rect(pantalla_principal, bola6.color, (bola6.mover()[0], bola6.mover()[1], bola6.ancho, bola6.alto))
-    pg.draw.rect(pantalla_principal, bola7.color, (bola7.mover()[0], bola7.mover()[1], bola7.ancho, bola7.alto))
-    pg.draw.rect(pantalla_principal, bola8.color, (bola8.mover()[0], bola8.mover()[1], bola8.ancho, bola8.alto))
-    pg.draw.rect(pantalla_principal, bola9.color, (bola9.mover()[0], bola9.mover()[1], bola9.ancho, bola9.alto))
+    cuadrado1.mover()
+    cuadrado2.mover()
+    cuadrado3.mover()
+    cuadrado4.mover()
+    cuadrado5.mover()
+    cuadrado6.mover()
+    cuadrado7.mover()
+    cuadrado8.mover()
+    cuadrado9.mover()
+    cuadrado10.mover()
+
+    ball1.mover()
+    ball2.mover()
+    ball3.mover()
+    ball4.mover()
+
     pg.display.flip() #Para aplicar todo el añadido de arriba.
