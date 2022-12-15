@@ -14,14 +14,14 @@ pantalla_principal = pg.display.set_mode( (ancho_pant, alto_pant) ) # Ventana y 
 pg.display.set_caption("Bolillas Rebotando") # Titulo para la ventana
 
 game_over = False
-velocidad = 1 
+velocidad = 0.2 
 
 listaCuadritos = []
 listaBolillas = []
 
-for i in range (1, 101):
-    listaCuadritos.append(Rectangulo(rn.randint(5,15), rn.randint(5,15), (rn.randint(0, 255), rn.randint(0, 255), rn.randint(0, 255)), rn.randint(0, 800), rn.randint(0, 600), ancho_pant, alto_pant, pantalla_principal, velocidad))
-for i in range (1, 101):
+for i in range (0, 6):
+    listaCuadritos.append(Rectangulo(15, 15, (rn.randint(0, 255), rn.randint(0, 255), rn.randint(0, 255)), rn.randint(-999, 1000), rn.randint(-999, 1000), ancho_pant, alto_pant, pantalla_principal, velocidad))
+for i in range (0, 6):
     listaBolillas.append(Bola(rn.randint(5, 15),(rn.randint(0, 255), rn.randint(0, 255), rn.randint(0, 255)), rn.randint(0, 800), rn.randint(0, 600), ancho_pant, alto_pant, pantalla_principal, velocidad))
 
 while not game_over:
