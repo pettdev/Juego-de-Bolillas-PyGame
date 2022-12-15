@@ -17,10 +17,7 @@ velocidad = 1
 
 cuadrado1 = Rectangulo(20, 20, (244, 157, 26), 0, 246, ancho_pant, alto_pant, pantalla_principal, velocidad)
 cuadrado2 = Rectangulo(20, 20, (233, 53, 53), 350, 0, ancho_pant, alto_pant, pantalla_principal, velocidad)
-
-# cuadrado3 es un ejemplo de no sobrepasar el limite, se estanca subiendo y disminuyendo 1 paso en el eje x (784).
-cuadrado3 = Rectangulo(20, 20, (175, 30, 104), 784, 10, ancho_pant, alto_pant, pantalla_principal, velocidad)
-
+cuadrado3 = Rectangulo(20, 20, (175, 30, 104), 779, 10, ancho_pant, alto_pant, pantalla_principal, velocidad)
 cuadrado4 = Rectangulo(20, 20, (224, 53, 53), 376, 147, ancho_pant, alto_pant, pantalla_principal, velocidad)
 cuadrado5 = Rectangulo(20, 20, (106, 30, 104), 276, 55, ancho_pant, alto_pant, pantalla_principal, velocidad)
 cuadrado6 = Rectangulo(20, 20, (200, 53, 53), 575, 242, ancho_pant, alto_pant, pantalla_principal, velocidad)
@@ -30,10 +27,7 @@ cuadrado9 = Rectangulo(20, 20, (158, 30, 104), 185, 0, ancho_pant, alto_pant, pa
 cuadrado10 = Rectangulo(20, 20, (255, 225, 93), 400, 300, ancho_pant, alto_pant, pantalla_principal, velocidad)
 
 ball1 = Bola(20, (154, 220, 255), 456, 200, ancho_pant, alto_pant, pantalla_principal, velocidad)
-
-# ball2 es otro ejemplo de no sobrepasar el limite, se estanca subiendo y disminuyendo 1 paso en el eje y (580).
-ball2 = Bola(20, (255, 248, 154), 250, 580, ancho_pant, alto_pant, pantalla_principal, velocidad)
-
+ball2 = Bola(20, (255, 248, 154), 250, 579, ancho_pant, alto_pant, pantalla_principal, velocidad)
 ball3 = Bola(20, (255, 178, 166), 113, 430, ancho_pant, alto_pant, pantalla_principal, velocidad)
 ball4 = Bola(20, (255, 138, 174), 200, 320, ancho_pant, alto_pant, pantalla_principal, velocidad)
 

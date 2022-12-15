@@ -22,20 +22,15 @@ class Rectangulo():
 
     def mover(self):
         self.pos_x += self.vx
-        print('self.pos_x += self.vx =', self.pos_x)
         self.pos_y += self.vy
         
         if self.pos_x >= self.lim_x or self.pos_x <= 0:
             self.vx *= -1
-            print('self.vx *= -1 =', self.vx)
         if self.pos_y >= self.lim_y or self.pos_y <= 0:
             self.vy *= -1
     
-
+    
     def dibujar(self):
-        print('pos_x dibujar:', self.pos_x)
-        print('vx dibujar:', self.vx)
-        
         pg.draw.rect(self.surface, (self.color), (self.pos_x, self.pos_y, self.ancho, self.alto))
 
 
