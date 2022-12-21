@@ -8,8 +8,6 @@ class Pelota:
         self.color = color
         self.vx = vx
         self.vy = vy
-        self.contadorDerecha = 0
-        self.contadorIzquierda = 0
         self.font = pg.font.Font(None, 40)
 
 
@@ -27,27 +25,22 @@ class Pelota:
             #desde donde vino
             #contar el gol nuevo desafio
         if self.pos_x >= x_max+self.radio*10:#limite derecho
-            self.contadorIzquierda += 1 
-
             self.pos_x = x_max//2
             self.pos_y = y_max//2
             self.vx *= -1
             self.vy *= -1
+
+            return "right"
              
 
         if self.pos_x < 0-self.radio*10:#limite izquierdo
-            self.contadorDerecha +=1
-
             self.pos_x = x_max//2
             self.pos_y = y_max//2
             self.vx *= -1
             self.vy *= -1
+
+            return "left"
     
-    def marcador(self,pantalla_principal):
-        marcadorIzquierda = self.font.render(str( self.contadorDerecha),0, (255,255,0))
-        marcadorDerecha = self.font.render( str(self.contadorIzquierda),0, (255,255,0))
-        pantalla_principal.blit(marcadorDerecha, (200, 50))
-        pantalla_principal.blit(marcadorIzquierda, (600, 50 ))
     
 
     @property
@@ -61,7 +54,8 @@ class Pelota:
         return self.pos_y - self.radio
     @property
     def abajo(self):
-        return self.pos_y + self.radio                
+        return self.pos_y + self.radio      
+              
 
     def comprobar_choque(self,r1,r2):
         if self.derecha  >= r2.izquierda and \
@@ -113,9 +107,9 @@ class Raqueta:
         estado_teclas = pg.key.get_pressed()
        
         if estado_teclas[tecla_arriba] == True and self.pos_y > (y_min+self.h//2):
-            self.pos_y -= 2
+            self.pos_y -= 1
         if estado_teclas[tecla_abajo] == True and self.pos_y < (y_max-self.h//2) :
-            self.pos_y += 2     
+            self.pos_y += 1     
 
     @property
     def arriba(self):
@@ -132,5 +126,6 @@ class Raqueta:
     @property
     def derecha(self):
         return self.pos_x + self.w//2    
+
 
 

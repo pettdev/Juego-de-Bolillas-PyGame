@@ -1,5 +1,13 @@
-from pantallas import Partida #importar la clase Partida
+from pantallas import Partida,Menu #importar la clase Partida
 
-juego = Partida() #creamos objeto de la clase Partida
 
-juego.bucle_fotograma() #llamamos al bucle de fotograma
+
+
+menu = Menu()
+mensaje = menu.bucle_pantalla()
+
+if mensaje == 'jugar':
+    juego = Partida() #creamos objeto de la clase Partida
+    juego.bucle_fotograma() #llamamos al bucle de fotograma
+
+print(mensaje)
